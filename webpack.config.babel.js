@@ -3,6 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const TS_EXTENSION = /\.(ts|tsx)$/;
+const CSS_EXTENSION = /\.css?$/;
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -27,6 +28,10 @@ module.exports = {
         test: TS_EXTENSION,
         loader: "babel-loader",
         exclude: /node_modules/,
+      },
+      {
+        test: CSS_EXTENSION,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
