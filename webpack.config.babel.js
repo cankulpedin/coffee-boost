@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const TS_EXTENSION = /\.(ts|tsx)$/;
+
 module.exports = {
   entry: "./src/index.tsx",
   mode: "development",
@@ -15,8 +17,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        loader: "ts-loader",
+        test: TS_EXTENSION,
+        loader: "eslint-loader",
+        exclude: /node_modules/,
+        enforce: "pre",
+      },
+      {
+        test: TS_EXTENSION,
+        loader: "babel-loader",
         exclude: /node_modules/,
       },
     ],
