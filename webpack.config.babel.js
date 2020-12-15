@@ -16,6 +16,9 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
+  devServer: {
+    historyApiFallback: true, // TODO: later change this to work only in development mode
+  },
   module: {
     rules: [
       {
