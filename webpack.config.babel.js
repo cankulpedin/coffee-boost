@@ -3,6 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const TS_EXTENSION = /\.(ts|tsx)$/;
+const CSS_EXTENSION = /\.css?$/;
 
 module.exports = (env) => {
   const envConfig = env.config;
@@ -18,6 +19,9 @@ module.exports = (env) => {
     resolve: {
       extensions: [".ts", ".tsx", ".js"],
     },
+    devServer: {
+      historyApiFallback: true, // TODO: later change this to work only in development mode
+    },
     module: {
       rules: [
         {
@@ -30,6 +34,10 @@ module.exports = (env) => {
           test: TS_EXTENSION,
           loader: "babel-loader",
           exclude: /node_modules/,
+        },
+        {
+          test: CSS_EXTENSION,
+          use: ["style-loader", "css-loader"],
         },
       ],
     },
