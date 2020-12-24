@@ -2,8 +2,8 @@
   "name": "coffee-boost",
   "version": "0.0.1",
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "build": "webpack",
+    "start": "webpack-dev-server --open --env.config=dev",
+    "build": "webpack --env.config=prod",
     "lint": "eslint . --ext .ts,.tsx,.jsx,.js",
     "pretty":  "prettier **/*.{ts,tsx,js,jsx,html,json}"
   },
