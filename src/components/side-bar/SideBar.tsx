@@ -1,9 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import { getSideBarOptions } from "../../store/selectors/commonSelector";
+
 const StyledSideBar = styled(Nav)`
+  ${(props) => (props.isCollapsed ? "display: none;" : "")}
   height: 100%;
   flex-direction: column;
 `;
@@ -18,16 +22,21 @@ const StyledLink = styled(Link)`
 `;
 
 export const SideBar = (): JSX.Element => {
+  const sideBarOptions = useSelector(getSideBarOptions);
+
   return (
-    <StyledSideBar className="bg-light sidebar">
+    <StyledSideBar
+      isCollapsed={sideBarOptions.sideBarCollapsed}
+      className="bg-light sidebar"
+    >
       <StyledNavItem>
-        <StyledLink>1</StyledLink>
+        <StyledLink to="#">1</StyledLink>
       </StyledNavItem>
       <StyledNavItem>
-        <StyledLink>2</StyledLink>
+        <StyledLink to="#">2</StyledLink>
       </StyledNavItem>
       <StyledNavItem>
-        <StyledLink>3</StyledLink>
+        <StyledLink to="#">3</StyledLink>
       </StyledNavItem>
     </StyledSideBar>
   );

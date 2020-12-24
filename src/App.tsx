@@ -35,7 +35,7 @@ export const App = (): JSX.Element => (
       <StyledContainer no-gutters mx-0 px-0 fluid>
         <StyledMainRow noGutters={true}>
           <StyledMainColumnFirst md={2}>
-            <SideBar collapsed />
+            <SideBar />
           </StyledMainColumnFirst>
           <StyledMainColumnSecond md={10}>
             <NavigationBar navigationAlignment="left" />
