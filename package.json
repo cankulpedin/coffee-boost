@@ -1,6 +1,6 @@
 {
   "name": "coffee-boost",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "start": "webpack-dev-server --open --env.config=dev",
     "build": "webpack --env.config=prod",
