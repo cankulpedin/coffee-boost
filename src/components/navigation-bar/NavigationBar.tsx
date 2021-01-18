@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import { setSideBarCollapsed } from "../../store/slices/commonSlice";
 
@@ -23,6 +24,7 @@ export const NavigationBar = (
   props: NavigationBarPropsInterface
 ): JSX.Element => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const getAlignmentClass = () => {
     switch (props.navigationAlignment) {
@@ -38,7 +40,7 @@ export const NavigationBar = (
     <Navbar className={getAlignmentClass()} bg="light">
       <Navbar.Brand>My Brand</Navbar.Brand>
       <Nav.Item>
-        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/">{t("navbar_Home")}</StyledLink>
         <StyledLink
           to="/about"
           onClick={() => {
@@ -46,7 +48,7 @@ export const NavigationBar = (
             dispatch(setSideBarCollapsed());
           }}
         >
-          About
+          {t("navbar_About")}
         </StyledLink>
       </Nav.Item>
     </Navbar>
