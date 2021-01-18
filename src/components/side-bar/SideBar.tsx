@@ -7,8 +7,9 @@ import styled from "styled-components";
 import { getSideBarOptions } from "../../store/selectors/commonSelector";
 
 const StyledSideBar = styled(Nav)`
-  ${(props) => (props.isCollapsed ? "display: none;" : "")}
+  ${(props) => (props.isCollapsed ? "display: none;" : "display: flex;")}
   height: 100%;
+
   flex-direction: column;
 `;
 
@@ -23,7 +24,7 @@ const StyledLink = styled(Link)`
 
 export const SideBar = (): JSX.Element => {
   const sideBarOptions = useSelector(getSideBarOptions);
-
+  console.log(sideBarOptions);
   return (
     <StyledSideBar
       isCollapsed={sideBarOptions.sideBarCollapsed}
@@ -38,6 +39,7 @@ export const SideBar = (): JSX.Element => {
       <StyledNavItem>
         <StyledLink to="#">3</StyledLink>
       </StyledNavItem>
+      <StyledNavItem></StyledNavItem>
     </StyledSideBar>
   );
 };

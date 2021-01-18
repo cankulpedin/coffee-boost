@@ -19,11 +19,9 @@ const commonSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     setSideBarCollapsed(state, action: PayloadAction<SideBarState>) {
-      const currentSideBarStatus = state.sideBar.sideBarCollapsed;
-      console.log("fsd");
       state.sideBar = {
         ...action.payload,
-        sideBarCollapsed: !currentSideBarStatus,
+        sideBarCollapsed: action.payload.sideBarCollapsed,
       };
     },
   },
